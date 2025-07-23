@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Kelurahan Jati</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="overlay">
+      <h1>SELAMAT DATANG DI<br><span>WEBSITE KELURAHAN JATI</span></h1>
+      <p class="subtitle">Pelayanan Prima Menuju Kota Probolinggo<br>Semakin Luar Biasa</p>
+
+      <!-- FORM LOGIN -->
+      <form id="loginForm" class="login-form" onsubmit="return login(event)">
+        <input id="username" type="text" placeholder="Username" required />
+        <input id="password" type="password" placeholder="Password" required />
+        <button type="submit">LOGIN</button>
+      </form>
+
+      <p><a href="#" onclick="toggleRegister(true)">Belum punya akun? Registrasi</a></p>
+
+      <!-- FORM REGISTRASI -->
+      <form id="registerForm" class="login-form" style="display: none;" onsubmit="return register(event)">
+        <input id="regNama" type="text" placeholder="Nama Lengkap" required />
+        <input id="regRT" type="text" placeholder="RT" required />
+        <input id="regRW" type="text" placeholder="RW" required />
+        <input id="regAlamat" type="text" placeholder="Alamat" required />
+        <input id="regUsername" type="text" placeholder="Username" required />
+        <input id="regPassword" type="password" placeholder="Password" required />
+        <button type="submit">SIMPAN</button>
+        <p><a href="#" onclick="toggleRegister(false)">Sudah punya akun? Kembali ke Login</a></p>
+      </form>
+
+      <p class="footer-text">WEBSITE PENDATAAN RW & RT<br>KELURAHAN JATI KOTA PROBOLINGGO</p>
+      <p class="ig">@jatikelurahan</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleRegister(show) {
+      document.getElementById("loginForm").style.display = show ? "none" : "block";
+      document.getElementById("registerForm").style.display = show ? "block" : "none";
+    }
+
+    function login(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Admin tetap bisa masuk
+      if (username === "admin" && password === "123") {
+        window.location.href = "dashboard.html";
+        return;
+      }
+
+      // Cek dari localStorage
+      const warga = JSON.parse(localStorage.getItem("warga")) || [];
+
+      const ditemukan = warga.find(user => user.username === username && user.password === password);
+
+      if (ditemukan) {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Username atau Password salah!");
+      }
+    }
+
+    function register(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById("regNama").value;
+      const rt = document.getElementById("regRT").value;
+      const rw = document.getElementById("regRW").value;
+      const alamat = document.getElementById("regAlamat").value;
+      const username = document.getElementById("regUsername").value;
+      const password = document.getElementById("regPassword").value;
+
+      const warga = JSON.parse(localStorage.getItem("warga")) || [];
+
+      // Cek jika username sudah ada
+      if (warga.find(user => user.username === username)) {
+        alert("Username sudah digunakan. Coba username lain.");
+        return;
+      }
+
+      warga.push({ nama, rt, rw, alamat, username, password });
+      localStorage.setItem("warga", JSON.stringify(warga));
+
+      alert("Registrasi berhasil! Silakan login.");
+      toggleRegister(false);
+    }
+  </script>
+</body>
+</html>

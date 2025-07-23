@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Kelurahan Jati</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="Logo Jati.png" alt="Logo Jati BISA">
+    </div>
+    <ul class="nav">
+      <li class="active" onclick="showSection('home')"> Home</li>
+      <li onclick="showSection('Pengaduan Warga')"> Pengaduan Warga</li>
+      <li onclick="showSection('Data Rt Dan Rw')"> Data RT Dan RW</li>
+      <li onclick="showSection('Fasilitas Kelurahan')"> Fasilitas Kelurahan</li>
+      <li onclick="showSection('Peta')"> Peta</li>
+      <li onclick="showSection('Informasi/Berita')"> Informasi/Berita</li>
+    </ul>
+    <div class="logout" onclick="logout()">🔒 Logout</div>
+
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2>SISTEM INFORMASI PENDATAAN RT DAN RW <br>DI KELURAHAN JATI, KECAMATAN MAYANGAN, <br>KOTA PROBOLINGGO</h2>
+    </div>
+
+    <!-- Semua Section ditampilkan berdasarkan klik -->
+    <div id="home" class="content-section active">
+  <h3>Deskripsi</h3>
+  <p>
+    Kelurahan Jati adalah salah satu wilayah administratif yang berada di Kota Probolinggo. Wilayah ini memiliki beragam potensi sumber daya manusia dan sosial kemasyarakatan yang aktif dalam membangun lingkungan. Dengan jumlah penduduk yang heterogen, Kelurahan Jati menjadi pusat pelayanan publik yang dekat dengan masyarakat.
+  </p>
+  <p>
+    Kantor Kelurahan Jati Probolinggo melayani masyarakat dalam memenuhi kebutuhan administrasi kependudukan,
+    termasuk di antaranya perizinan-perizinan seperti pekerjaan umum, perizinan umum keluarga, perizinan pendidikan,
+    kesehatan warga kelurahan, perumahan, perantauan, transportasi, lingkungan hidup, pertanahan, serta pemberdayaan perempuan dan perlindungan anak.
+  </p>
+  <p>
+    Selain itu, kantor kelurahan ini juga menangani pengurusan surat seperti surat keterangan domisili, NPWP, Surat Keterangan Usaha, Surat Pindah Keluar, Surat Keterangan Tidak Mampu, dan lainnya.
+  </p>
+  <p>
+    Kantor Kelurahan Jati Probolinggo juga melayani urusan perizinan umum seperti izin toko, praktek dokter dan perawat, pembangunan posko, IMB, izin pertunjukan umum, perdagangan (SIUP), usaha mikro, dll.
+  </p>
+  <p>
+    Segera kunjungi Kantor Kelurahan Jati untuk mendapatkan informasi lengkap terkait administrasi kependudukan, aspirasi warga, info penyuluhan, dan layanan digital lainnya.
+  </p>
+
+  <!-- Visi dan Misi -->
+  <div class="visi-misi-box">
+    <h3><i class="fas fa-bullseye"></i> Visi Kelurahan Jati</h3>
+    <p>
+      “Terwujudnya masyarakat Kelurahan Jati yang maju, mandiri, sejahtera, dan berakhlak mulia melalui pelayanan prima dan pemberdayaan masyarakat.”
+    </p>
+
+    <h3><i class="fas fa-road"></i> Misi Kelurahan Jati</h3>
+    <ul class="misi-list">
+      <li>✅ Meningkatkan kualitas pelayanan publik yang cepat, tepat, dan transparan.</li>
+      <li>✅ Mendorong partisipasi aktif masyarakat dalam pembangunan lingkungan.</li>
+      <li>✅ Mengembangkan potensi ekonomi lokal dan UMKM warga Kelurahan Jati.</li>
+      <li>✅ Mewujudkan lingkungan yang bersih, aman, dan berkelanjutan.</li>
+      <li>✅ Menumbuhkan budaya gotong royong dan kebersamaan antarwarga.</li>
+    </ul>
+  </div>
+</div>
+
+
+    <div id="Pengaduan Warga" class="content-section">
+      <h3>Formulir Pengaduan Warga</h3>
+<form action="https://formsubmit.co/nauvalabrori765@gmail.com" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_subject" value="Pengaduan Warga - Kelurahan Jati">
+
+
+  <label for="nama">Nama:</label><br>
+  <input type="text" name="Nama" id="nama" required><br><br>
+
+  <label for="alamat">Alamat:</label><br>
+  <input type="text" name="Alamat" id="alamat" required><br><br>
+
+  <label for="jenis">Jenis Pengaduan:</label><br>
+  <select name="Jenis Pengaduan" id="jenis" required>
+    <option value="Kebersihan">Kebersihan</option>
+    <option value="Keamanan">Keamanan</option>
+    <option value="Sosial">Sosial</option>
+    <option value="Infrastruktur">Infrastruktur</option>
+    <option value="Lainnya">Lainnya</option>
+  </select><br><br>
+
+  <label for="deskripsi">Deskripsi Pengaduan:</label><br>
+  <textarea name="Deskripsi" id="deskripsi" rows="4" cols="50" required></textarea><br><br>
+
+  <button type="submit">Kirim Pengaduan</button>
+</form>
+
+</table>
+    </div>
+
+    <div id="Data Rt Dan Rw" class="content-section">
+  <h3>Data RT dan RW Kelurahan Jati</h3>
+
+  <!-- Form Tambah Data Manual -->
+  <h4 style="margin-top: 30px;">Tambah Data RT dan RW Secara Manual</h4>
+  <form id="formTambahData">
+    <input type="text" id="rtInput" placeholder="RT" required>
+    <input type="text" id="rwInput" placeholder="RW" required>
+    <input type="text" id="ketuaInput" placeholder="Nama Ketua RT" required>
+    <input type="text" id="alamatInput" placeholder="Alamat" required>
+    <button type="submit">Tambah</button>
+  </form>
+<script>
+  // Ambil data dari localStorage saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", function () {
+    loadDataRT();
+  });
+
+  document.getElementById("formTambahData").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const rt = document.getElementById("rtInput").value;
+    const rw = document.getElementById("rwInput").value;
+    const ketua = document.getElementById("ketuaInput").value;
+    const alamat = document.getElementById("alamatInput").value;
+
+    const dataBaru = {
+      rt, rw, ketua, alamat
+    };
+
+    let dataRT = JSON.parse(localStorage.getItem("dataRT")) || [];
+    dataRT.push(dataBaru);
+    localStorage.setItem("dataRT", JSON.stringify(dataRT));
+
+    this.reset();
+    loadDataRT();
+  });
+
+  function loadDataRT() {
+    const tbody = document.querySelector("#tabelDataRT tbody");
+    tbody.innerHTML = "";
+
+    const dataRT = JSON.parse(localStorage.getItem("dataRT")) || [];
+
+    dataRT.forEach((item, index) => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${item.rt}</td>
+        <td>${item.rw}</td>
+        <td>${item.ketua}</td>
+        <td>${item.alamat}</td>
+        <td>
+          <button onclick="editRow(${index})">Edit</button>
+          <button onclick="hapusRow(${index})">Hapus</button>
+        </td>
+      `;
+
+      tbody.appendChild(row);
+    });
+  }
+
+  function editRow(index) {
+    let dataRT = JSON.parse(localStorage.getItem("dataRT")) || [];
+
+    const item = dataRT[index];
+
+    const rtBaru = prompt("Edit RT:", item.rt);
+    const rwBaru = prompt("Edit RW:", item.rw);
+    const ketuaBaru = prompt("Edit Nama Ketua:", item.ketua);
+    const alamatBaru = prompt("Edit Alamat:", item.alamat);
+
+    if (rtBaru && rwBaru && ketuaBaru && alamatBaru) {
+      dataRT[index] = {
+        rt: rtBaru,
+        rw: rwBaru,
+        ketua: ketuaBaru,
+        alamat: alamatBaru
+      };
+
+      localStorage.setItem("dataRT", JSON.stringify(dataRT));
+      loadDataRT();
+    }
+  }
+
+  function hapusRow(index) {
+    let dataRT = JSON.parse(localStorage.getItem("dataRT")) || [];
+
+    if (confirm("Yakin ingin menghapus data ini?")) {
+      dataRT.splice(index, 1);
+      localStorage.setItem("dataRT", JSON.stringify(dataRT));
+      loadDataRT();
+    }
+  }
+</script>
+
+
+  <table id="tabelDataRT" class="data-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>RT</th>
+        <th>RW</th>
+        <th>Nama Ketua RT</th>
+        <th>Alamat</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+</div>
+
+    <div id="Fasilitas Kelurahan" class="content-section active">
+  <h3>Fasilitas Kelurahan Jati</h3>
+  <p>Kelurahan Jati memiliki berbagai fasilitas umum yang mendukung kehidupan masyarakat dan pelayanan pemerintahan. Fasilitas-fasilitas ini dikelola bersama oleh warga dan perangkat kelurahan untuk memastikan kenyamanan dan kesejahteraan bersama.</p>
+
+  <table class="facility-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Fasilitas</th>
+        <th>Deskripsi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Balai Kelurahan</td>
+        <td>Tempat kegiatan administrasi dan musyawarah warga.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Puskesmas Pembantu</td>
+        <td>Layanan kesehatan dasar seperti imunisasi, pemeriksaan ibu hamil, dan pengobatan ringan.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Posyandu</td>
+        <td>Pelayanan kesehatan balita dan ibu yang dilakukan secara berkala oleh kader dan bidan desa.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>TPA dan PAUD</td>
+        <td>Tempat Pendidikan Anak Usia Dini untuk mendukung pendidikan dasar masyarakat.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Sarana Ibadah</td>
+        <td>Terdapat masjid dan musholla yang tersebar di beberapa RT.</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Sarana Olahraga</td>
+        <td>Lapangan voli, lapangan bulutangkis, dan taman bermain warga.</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Tempat Pengolahan Sampah</td>
+        <td>TPS terpadu yang dikelola oleh petugas lingkungan.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top: 20px;">Semua fasilitas ini tersedia untuk menunjang kesejahteraan masyarakat dan dapat dimanfaatkan oleh warga sesuai kebutuhan dan peraturan yang berlaku di lingkungan masing-masing.</p>
+</div>
+
+
+    <div id="Peta" class="content-section">
+      <h2>Peta Lokasi Kelurahan Jati</h2>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.319031265283!2d113.22360947476554!3d-7.755948392263035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ada5402bda93%3A0xa5580b6dcd652daf!2sKantor%20Lurah%20Jati!5e0!3m2!1sid!2sid!4v1753297226615!5m2!1sid!2sid"
+  width="100%"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+    </div>
+
+    <div id="Informasi/Berita" class="content-section">
+  <h3>Informasi dan Berita Terkini di Kelurahan Jati</h3>
+
+  <div class="berita">
+    <h4>1. Program Gotong Royong Kebersihan Lingkungan</h4>
+    <p>Pada hari Minggu, 20 Juli 2025, seluruh warga RT 02 RW 01 melaksanakan kegiatan gotong royong membersihkan saluran air dan sampah di sekitar lingkungan. Kegiatan ini bertujuan mengantisipasi banjir saat musim hujan dan menjaga kebersihan lingkungan bersama.</p>
+  </div>
+
+  <div class="berita">
+    <h4>2. Penyuluhan Kesehatan untuk Lansia</h4>
+    <p>Puskesmas Pembantu Kelurahan Jati mengadakan penyuluhan tentang pencegahan hipertensi dan diabetes kepada warga lansia pada hari Jumat, 18 Juli 2025. Acara ini dihadiri oleh puluhan warga dan dipandu langsung oleh tenaga medis dari puskesmas.</p>
+  </div>
+
+  <div class="berita">
+    <h4>3. Pelatihan UMKM: Digital Marketing untuk Produk Lokal</h4>
+    <p>Dalam rangka pemberdayaan ekonomi warga, Kelurahan Jati mengadakan pelatihan digital marketing bagi pelaku usaha kecil pada 15 Juli 2025. Pelatihan ini bertujuan meningkatkan pemasaran produk lokal melalui media sosial dan marketplace.</p>
+  </div>
+
+  <p>Untuk mendapatkan berita lebih lanjut, warga dapat mengikuti media sosial resmi Kelurahan Jati atau datang langsung ke Balai Kelurahan setiap hari kerja.</p>
+</div>
+
+
+  <script>
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    const menuItems = document.querySelectorAll('.nav li');
+
+    sections.forEach(section => section.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+
+    menuItems.forEach(item => item.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+function logout() {
+  window.location.href = "index.html"
+}
+
+
+</script>
+
+</body>
+</html>

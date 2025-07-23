@@ -1,0 +1,75 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  background-image: url('gambar\ kel\ jati.jpg'); /* Ganti dengan gambar background kamu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h1 span {
+  font-size: 24px;
+}
+
+.subtitle {
+  font-size: 13px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.login-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-text {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.ig {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #ddd;
+}
